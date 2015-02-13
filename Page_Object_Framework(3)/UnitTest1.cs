@@ -43,6 +43,10 @@ namespace Page_Object_Framework_3_
             Reusables1 obj1 = new Reusables1(driver);           
             obj1.reusables1();            
         }
-        
+        [TestFixtureTearDown]   
+        public void teardown()
+        {
+            driver.Quit();
+        }
     }
 }
