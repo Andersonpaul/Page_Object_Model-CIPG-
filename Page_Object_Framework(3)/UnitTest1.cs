@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Firefox;
@@ -27,18 +28,20 @@ namespace Page_Object_Framework_3_
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(500));  
             url = "http://62.173.32.45/cipgharmonized/";
         }
-        [Test,Timeout(500000)]
+        [Test]
         public void TestMethod1()
         {
          
             driver.Navigate().GoToUrl(url);
             Reusables obj = new Reusables(driver);            
-            obj.test();            
+            obj.test();
+            //Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+            //ss.SaveAsFile("Alert_pic",)
             alert = driver.SwitchTo().Alert();
             alert.Accept();                            
         }
       
-        [Test,Timeout(500000)]
+        [Test]
         public void TestMethod2()
         {
             Reusables1 obj1 = new Reusables1(driver);           
@@ -50,15 +53,7 @@ namespace Page_Object_Framework_3_
         {
             driver.Quit();
         }
-
-        //the code below illustrates the use of the WebDriverWait class
-        /*public WebElement findDynamicElement(By by, int timeOut) {
-          WebDriverWait wait = new WebDriverWait(driver, timeOut);
-          WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-          return element;
-          }
-
-          findDynamicElement(By.xpath("//body") , 30);
-        */
+               
+        
     }
 }
